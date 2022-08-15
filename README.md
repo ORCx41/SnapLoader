@@ -9,9 +9,6 @@
 * then i squeeze the base address to the start of ntdll.dll, so since the `stack grow downward` in windows, we use `- ShellcodeSize * 3` [here](https://gitlab.com/ORCA666/snaploader/-/blob/main/SnapLoader/Snap.h#L93) .
 * now, moving to running the shellcode, i used the same tech, with `PSS_THREAD_ENTRY` to get the current context of the thread [here](https://gitlab.com/ORCA666/snaploader/-/blob/main/SnapLoader/Snap.h#L177) and then overwriting it with our base address and using `SetThreadContext` to set the context we modified, since our process is suspended, no need to use `ResumeThread` or `SuspendThread` .
 
-# DEMO
-<h6 align="center"> <i>idk if it is 100% bypass, rate it </i>  </h6>
-![demo](https://gitlab.com/ORCA666/snaploader/-/raw/main/images/Inkedbypassing_peseive_LI.jpg)
 
 # THANKS FOR:
 * [psswin32](https://github.com/genghiskMSFT/psswin32)
@@ -20,5 +17,3 @@
 # AT THE END:
 #### This is not a code to bypass Av's as is, but a method used to do so, instead of using `VirtualAllocEx / MapViewOfFile` for example, at the other hand, this poc aims to get rid of typicall and `known` apis.
 
-<h6 align="center"> <i>#                                   STAY TUNED FOR MORE</i>  </h6> 
-![120064592-a5c83480-c075-11eb-89c1-78732ecaf8d3](https://gitlab.com/ORCA666/kcthijack/-/raw/main/images/PP.png)
